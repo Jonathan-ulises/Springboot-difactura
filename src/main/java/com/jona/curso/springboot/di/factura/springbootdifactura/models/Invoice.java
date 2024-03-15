@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 
 @Component
 public class Invoice {
@@ -31,6 +32,12 @@ public class Invoice {
     }
 
     
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Destruyendo el componente o bean invoice!");
+    }
+    
+
     public Client getClient() {
         return client;
     }
